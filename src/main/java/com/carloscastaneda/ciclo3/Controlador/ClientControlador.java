@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequestMapping("/api/Client")
 
 public class ClientControlador {
-         @Autowired
+    @Autowired
     private ClientServicio clientService;
     @GetMapping("/all")
     public List<Client> getClients(){

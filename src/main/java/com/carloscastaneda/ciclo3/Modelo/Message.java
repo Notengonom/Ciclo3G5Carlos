@@ -13,13 +13,13 @@ import javax.persistence.Table;
 @Table(name = "message")
 
 public class Message {
-       @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
     private String messageText;
 
     
-  @ManyToOne
+    @ManyToOne
     @JoinColumn(name="id")
     @JsonIgnoreProperties({"messages","reservations"})
     private Room room;
