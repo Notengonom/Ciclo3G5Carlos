@@ -20,7 +20,7 @@ public class GameRepositorio {
         return (List<Game>) gameInterface.findAll();
     }
 
-    public Optional<Game> getRoom(int id){
+    public Optional<Game> getGame(int id){
         return gameInterface.findById(id);
     }
 

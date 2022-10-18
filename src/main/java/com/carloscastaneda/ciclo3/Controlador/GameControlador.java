@@ -25,34 +25,34 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class GameControlador {
      @Autowired
-    private GameServicio roomservice;
+    private GameServicio gameservice;
     @GetMapping("/all")
     public List<Game> getRooms(){
-        return roomservice.getAll();
+        return gameservice.getAll();
     }
 
 
     @GetMapping("/{id}")
-    public Optional<Game> getRoom(@PathVariable("id") int roomId) {
-        return roomservice.getRoom(roomId);
+    public Optional<Game> getRoom(@PathVariable("id") int gameId) {
+        return gameservice.getGame(gameId);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Game save(@RequestBody Game game) {
-        return roomservice.save(game);
+        return gameservice.save(game);
     }
     
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Game update(@RequestBody Game game) {
-        return roomservice.update(game);
+        return gameservice.update(game);
     }
     
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id){
-        return roomservice.deleteRoom(id);
+        return gameservice.deleteGame(id);
     }
     
   

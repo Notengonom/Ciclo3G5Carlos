@@ -19,15 +19,15 @@ public class GameServicio {
         return gameRepositorio.getAll();
     }
 
-    public Optional<Game> getRoom(int ortopedicId) {
-        return gameRepositorio.getRoom(ortopedicId);
+    public Optional<Game> getGame(int gameId) {
+        return gameRepositorio.getGame(gameId);
     }
 
     public Game save(Game game){
         if(game.getId()==null){
             return gameRepositorio.save(game);
         }else{
-            Optional<Game>e= gameRepositorio.getRoom(game.getId());
+            Optional<Game>e= gameRepositorio.getGame(game.getId());
             if(e.isEmpty()){
                 return gameRepositorio.save(game);
             }else{
@@ -38,7 +38,7 @@ public class GameServicio {
     
        public Game update(Game game){
         if(game.getId()!=null){
-            Optional<Game> e= gameRepositorio.getRoom(game.getId());
+            Optional<Game> e= gameRepositorio.getGame(game.getId());
             if(!e.isEmpty()){
                 if(game.getName()!=null){
                     e.get().setName(game.getName());
@@ -67,8 +67,8 @@ public class GameServicio {
 
     
     
-      public boolean deleteRoom (int id){
-        Boolean d = getRoom(id).map(room -> {
+      public boolean deleteGame (int id){
+        Boolean d = getGame(id).map(room -> {
             gameRepositorio.delete(room);
             return true;
         }).orElse(false);
