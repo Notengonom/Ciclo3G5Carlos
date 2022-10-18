@@ -43,11 +43,11 @@ public class GameServicio {
                 if(game.getName()!=null){
                     e.get().setName(game.getName());
                 }
-                if(game.getHotel()!=null){
-                    e.get().setHotel(game.getHotel());
+                if(game.getDeveloper()!=null){
+                    e.get().setDeveloper(game.getDeveloper());
                 }
-                if(game.getStars()!=null){
-                    e.get().setStars(game.getStars());
+                if(game.getYear()!=null){
+                    e.get().setYear(game.getYear());
                 }
                 if(game.getDescription()!=null){
                     e.get().setDescription(game.getDescription());

@@ -55,19 +55,19 @@ public class Game implements Serializable {
         this.name = name;
     }
 
-    public String getHotel() {
+    public String getDeveloper() {
         return developer;
     }
 
-    public void setHotel(String hotel) {
-        this.developer = hotel;
+    public void setDeveloper(String developer) {
+        this.developer = developer;
     }
 
-    public Integer getStars() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setStars(Integer year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
