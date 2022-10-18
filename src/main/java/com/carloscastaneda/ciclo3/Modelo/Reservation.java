@@ -26,7 +26,7 @@ public class Reservation implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id")
     @JsonIgnoreProperties("reservations")
-    private Room room;
+    private Game game;
 
     @ManyToOne
     @JoinColumn(name = "clientId")
@@ -67,12 +67,12 @@ public class Reservation implements Serializable {
         this.status = status;
     }
 
-    public Room getRoom() {
-        return room;
+    public Game getGame() {
+        return game;
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setRoom(Game game) {
+        this.game = game;
     }
 
     public Client getClient() {

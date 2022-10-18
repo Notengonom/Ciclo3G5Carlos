@@ -16,27 +16,27 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "room")
-public class Room implements Serializable {
+public class Game implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String hotel;
-    private Integer stars;
+    private String developer;
+    private Integer year;
     private String description;
 
     @ManyToOne
     @JoinColumn(name = "categoryId")
-    @JsonIgnoreProperties("rooms")
+    @JsonIgnoreProperties("games")
     private Category category;
 
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "room")
-    @JsonIgnoreProperties({"room","client"})
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "game")
+    @JsonIgnoreProperties({"game","client"})
     private List<Message> messages;
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "room")
-    @JsonIgnoreProperties({"room","messages"})
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "game")
+    @JsonIgnoreProperties({"game","messages"})
     public List<Reservation> reservations;
 
     public Integer getId() {
@@ -56,19 +56,19 @@ public class Room implements Serializable {
     }
 
     public String getHotel() {
-        return hotel;
+        return developer;
     }
 
     public void setHotel(String hotel) {
-        this.hotel = hotel;
+        this.developer = hotel;
     }
 
     public Integer getStars() {
-        return stars;
+        return year;
     }
 
     public void setStars(Integer year) {
-        this.stars = year;
+        this.year = year;
     }
 
     public String getDescription() {

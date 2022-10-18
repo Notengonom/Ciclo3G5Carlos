@@ -3,8 +3,8 @@ package com.carloscastaneda.ciclo3.Controlador;
 import java.util.List;
 import java.util.Optional;
 
-import com.carloscastaneda.ciclo3.Modelo.Room;
-import com.carloscastaneda.ciclo3.Servicio.RoomServicio;
+import com.carloscastaneda.ciclo3.Modelo.Game;
+import com.carloscastaneda.ciclo3.Servicio.GameServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,33 +20,33 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/Room")
+@RequestMapping("/api/Game")
 @CrossOrigin(origins = "*")
 
-public class RoomControlador {
+public class GameControlador {
      @Autowired
-    private RoomServicio roomservice;
+    private GameServicio roomservice;
     @GetMapping("/all")
-    public List<Room> getRooms(){
+    public List<Game> getRooms(){
         return roomservice.getAll();
     }
 
 
     @GetMapping("/{id}")
-    public Optional<Room> getRoom(@PathVariable("id") int roomId) {
+    public Optional<Game> getRoom(@PathVariable("id") int roomId) {
         return roomservice.getRoom(roomId);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Room save(@RequestBody Room room) {
-        return roomservice.save(room);
+    public Game save(@RequestBody Game game) {
+        return roomservice.save(game);
     }
     
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Room update(@RequestBody Room room) {
-        return roomservice.update(room);
+    public Game update(@RequestBody Game game) {
+        return roomservice.update(game);
     }
     
     @DeleteMapping("/{id}")
